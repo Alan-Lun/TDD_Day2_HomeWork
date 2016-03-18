@@ -42,7 +42,7 @@ namespace Shopping
                         {
                             Price = Price + 100;
                             break;
-                        }
+                        } 
                     case 2:
                         {
                             Price = Price + (100 * 2 * 0.95);
@@ -66,7 +66,11 @@ namespace Shopping
                     default:
                         break;
                 }
-                if(_bookList.Count==1)
+                if (booksCount > 1&& _bookList.Count == 1)
+                {
+                    return Price + (100 * booksCount);
+                }
+                else if (_bookList.Count==1)
                 {
                     return Price;
                 }

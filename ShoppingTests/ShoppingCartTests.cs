@@ -159,5 +159,29 @@ namespace Shopping.Tests
             //Assert.Fail();
         }
 
+        [TestMethod()]
+        public void CheckOutTest_補充第一三四五集買一本和第二集買十萬本_價格應為10000275()
+        {
+
+            //arrange 初始化
+            List<Book> _books = new List<Book>();
+            _books.Add(new Book { BookName = "哈利波特第一集", Num = 1, Price = 100, CheckOut = false });
+            _books.Add(new Book { BookName = "哈利波特第二集", Num = 100000, Price = 100, CheckOut = false });
+            _books.Add(new Book { BookName = "哈利波特第三集", Num = 1, Price = 100, CheckOut = false });
+            _books.Add(new Book { BookName = "哈利波特第四集", Num = 1, Price = 100, CheckOut = false });
+            _books.Add(new Book { BookName = "哈利波特第五集", Num = 1, Price = 100, CheckOut = false });
+
+            var target = new ShoppingCart();
+
+            var expected = 10000275;
+
+            //act 測試目標行為
+            var actual = target.CheckOut(_books);
+
+            //assert 驗證目標行為
+            Assert.AreEqual(expected, actual);
+            //Assert.Fail();
+        }
+
     }
 }
