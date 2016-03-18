@@ -28,5 +28,26 @@ namespace Shopping.Tests
             Assert.AreEqual(expected, actual);
             //Assert.Fail();
         }
+
+        [TestMethod()]
+        public void CheckOutTest_購買第一集一本和第二集一本_價格應為190()
+        {
+            //arrange 初始化
+            List<Book> _books = new List<Book>();
+            _books.Add(new Book { BookName = "哈利波特第一集", Num = 1, Price = 100 });
+            _books.Add(new Book { BookName = "哈利波特第二集", Num = 1, Price = 100 });
+
+            var target = new ShoppingCart();
+
+            var expected = 190;
+
+            //act 測試目標行為
+            var actual = target.CheckOut();
+
+            //assert 驗證目標行為
+            Assert.AreEqual(expected, actual);
+            //Assert.Fail();
+        }
+
     }
 }
