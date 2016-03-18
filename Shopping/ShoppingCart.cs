@@ -10,7 +10,7 @@ namespace Shopping
         public double CheckOut(List<Book> books)
         {
             var booksList = books.OrderBy(x => x.BookName);
-            int booksCount = booksList.Count();
+            int booksCount = booksList.Sum(x=>x.Num);
             double Price = 0;
 
                 
@@ -25,7 +25,11 @@ namespace Shopping
                     }
                     else
                     {
-                        item.CheckOut = true;
+                        item.Num = item.Num - 1;
+                        if(item.Num==0)
+                        {
+                            item.CheckOut = true;
+                        }
                         _bookList.Add(item);
                         booksCount = booksCount - 1;
 
