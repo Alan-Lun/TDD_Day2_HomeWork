@@ -15,14 +15,14 @@ namespace Shopping.Tests
         {
             //arrange 初始化
             List<Book> _books = new List<Book>();
-            _books.Add(new Book { BookName = "哈利波特第一集", Num = 1, Price = 100 });
+            _books.Add(new Book { BookName = "哈利波特第一集", Num = 1, Price = 100,CheckOut=false });
 
             var target = new ShoppingCart();
 
             var expected = 100;
 
             //act 測試目標行為
-            var actual = target.CheckOut();
+            var actual = target.CheckOut(_books);
 
             //assert 驗證目標行為
             Assert.AreEqual(expected, actual);
@@ -34,15 +34,15 @@ namespace Shopping.Tests
         {
             //arrange 初始化
             List<Book> _books = new List<Book>();
-            _books.Add(new Book { BookName = "哈利波特第一集", Num = 1, Price = 100 });
-            _books.Add(new Book { BookName = "哈利波特第二集", Num = 1, Price = 100 });
+            _books.Add(new Book { BookName = "哈利波特第一集", Num = 1, Price = 100, CheckOut = false });
+            _books.Add(new Book { BookName = "哈利波特第二集", Num = 1, Price = 100, CheckOut = false });
 
             var target = new ShoppingCart();
 
             var expected = 190;
 
             //act 測試目標行為
-            var actual = target.CheckOut();
+            var actual = target.CheckOut(_books);
 
             //assert 驗證目標行為
             Assert.AreEqual(expected, actual);

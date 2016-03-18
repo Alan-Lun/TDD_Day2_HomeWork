@@ -10,5 +10,6 @@ namespace Shopping
         public string BookName { get; set; }
         public int Num { get; set; }
         public int Price{ get; set; }
+        public bool CheckOut { get; set; }
     }
 }
