@@ -14,7 +14,7 @@ namespace Shopping
             double Price = 0;
 
                 
-            while(booksCount>1)
+            while(booksCount>0)
             {
                 List<Book> _bookList = new List<Book>();
                 foreach (var item in booksList.Where(x => x.CheckOut == false))
